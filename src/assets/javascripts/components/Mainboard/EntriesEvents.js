@@ -93,7 +93,7 @@ export function entriesEvents(){
     }
 
     function getDetailCard(){
-        if(!appTask_modal__taskDetail.matches('.appTask-modal__taskDetail--active')){
+        if(!appTask_modal__taskDetail.classList.contains('appTask-modal__taskDetail--active')){
             appTask_modal__taskDetail.classList.add('appTask-modal__taskDetail--active');
         }
     }
@@ -243,7 +243,7 @@ export function entriesEvents(){
 
     // mylist dropdown event definition
     function openBackdropModalListEvent(){
-        if(!backdropModal_list.matches('.appTask-modal__backdropModal--active')){
+        if(!backdropModal_list.classList.contains('appTask-modal__backdropModal--active')){
             transform("update backdrop list modal");
 
             backdropModal_list.classList.add('appTask-modal__backdropModal--active');
@@ -259,7 +259,7 @@ export function entriesEvents(){
 
     function hideBackdropModalList(e){
         if(!e.target.closest('.backdrop-modal')){
-            if(backdropModal_list.matches('.appTask-modal__backdropModal--active')){
+            if(backdropModal_list.classList.contains('appTask-modal__backdropModal--active')){
                 backdropModal_list.classList.remove('appTask-modal__backdropModal--active');
             }
         }
@@ -301,7 +301,7 @@ export function entriesEvents(){
 
             const newTaskIndex = transform("update project of the task", newSelectedIndex);
 
-            const isDetailModalOpened = appTask_modal__taskDetail.matches('.appTask-modal__taskDetail--active');
+            const isDetailModalOpened = appTask_modal__taskDetail.classList.contains('appTask-modal__taskDetail--active');
             if(!isDetailModalOpened){
 
                 transform("update current indexes", undefined, undefined);
@@ -323,7 +323,7 @@ export function entriesEvents(){
    
     // priority dropdown event definition
     function openBackdropModalPriorityEvent(){
-        if(!backdropModal_priority.matches('.appTask-modal__backdropModal--active')){
+        if(!backdropModal_priority.classList.contains('appTask-modal__backdropModal--active')){
             transform("update backdrop priority modal");
 
             backdropModal_priority.classList.add('appTask-modal__backdropModal--active');
@@ -339,7 +339,7 @@ export function entriesEvents(){
 
     function hideBackdropModalPriority(e){
         if(!e.target.closest('.backdrop-modal')){
-            if(backdropModal_priority.matches('.appTask-modal__backdropModal--active')){
+            if(backdropModal_priority.classList.contains('appTask-modal__backdropModal--active')){
                 backdropModal_priority.classList.remove('appTask-modal__backdropModal--active');
             }
         }
@@ -380,7 +380,7 @@ export function entriesEvents(){
 
             transform("update priority of the task", newSelectedIndex);
 
-            const isDetailModalOpened = appTask_modal__taskDetail.matches('.appTask-modal__taskDetail--active');
+            const isDetailModalOpened = appTask_modal__taskDetail.classList.contains('appTask-modal__taskDetail--active');
             
             if(!isDetailModalOpened){
                 transform("update current indexes", undefined, undefined);
