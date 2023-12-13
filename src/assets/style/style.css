@@ -799,7 +799,7 @@
     z-index: var(--base-z-index);
     visibility: hidden;
     transition: visibility ease 200ms;
-    will-change: visibility;
+    will-change: auto;
 }
 
 .appTask-modal__newproject--active {
@@ -816,7 +816,7 @@
     z-index: var(--backdrop-z-index);
     opacity: 0;
     transition: opacity ease 300ms;
-    will-change: opacity;
+    will-change: auto;
 }
 
 .appTask-modal__newproject--active .newproject-overlay {
@@ -836,7 +836,7 @@
     opacity: 0;
     transform: translateY(-20%);
     transition: opacity ease 300ms, transform ease 300ms;
-    will-change: opacity, transform;
+    will-change: auto;
 }
 
 .appTask-modal__newproject--active .newproject-modal {
@@ -863,7 +863,7 @@
     align-items: center;
     justify-content: center;
     transition: transform linear 100ms, box-shadow linear 100ms;
-    will-change: transform, box-shadow;
+    will-change: auto;
 }
 
 .newproject-modal__close svg {
@@ -1311,6 +1311,8 @@
     height: 100%;
     max-height: var(--mylist-modal-max-height);
     overflow-y: auto;
+    scrollbar-color: var(--scrollbar-thumb-bg-color) var(--scrollbar-pane-bg-color);
+    scrollbar-width: thin;
 }
 
 .mylist-modal-wrapper::-webkit-scrollbar {
@@ -1800,7 +1802,7 @@
     z-index: var(--base-z-index);
     visibility: hidden;
     transition: visibility ease 200ms;
-    will-change: visibility;
+    will-change: auto;
 }
 
 .appTask-modal__backdropModal--active {
@@ -1817,7 +1819,7 @@
     z-index: var(--backdrop-z-index);
     opacity: 0;
     transition: opacity ease 300ms;
-    will-change: opacity;
+    will-change: auto;
 }
 
 .appTask-modal__backdropModal--active .backdropModal_overlay {
@@ -1838,7 +1840,7 @@
     opacity: 0;
     transform: translateY(-10%);
     transition: opacity ease 300ms, transform ease 300ms;
-    will-change: opacity, transform;
+    will-change: auto;
 }
 
 .appTask-modal__backdropModal--active .backdrop-modal {
@@ -1975,7 +1977,7 @@
     opacity: 0;
     transform: translateY(-10%);
     transition: opacity ease 300ms, transform ease 300ms;
-    will-change: opacity, transform;
+    will-change: auto;
 }
 
 .appTask-modal__backdropModal--active .backdrop-modal {
@@ -2065,7 +2067,7 @@
     z-index: var(--base-z-index);
     visibility: hidden;
     transition: visibility ease 200ms;
-    will-change: visibility;
+    will-change: auto;
 }
 
 .appTask-modal__taskDetail--active {
@@ -2082,7 +2084,7 @@
     z-index: var(--backdrop-z-index);
     opacity: 0;
     transition: opacity ease 300ms;
-    will-change: opacity;
+    will-change: auto;
 }
 
 .appTask-modal__taskDetail--active .taskDetail__overlay {
@@ -2105,7 +2107,7 @@
     opacity: 0;
     transform: translateY(-5%);
     transition: opacity ease 300ms, transform ease 300ms;
-    will-change: opacity, transform;
+    will-change: auto;
 }
 
 .appTask-modal__taskDetail--active .taskDetail_modal {
