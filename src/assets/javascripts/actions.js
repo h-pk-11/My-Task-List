@@ -86,9 +86,6 @@ const actions = {
     "change view mode": function(viewMode, id){
         if(viewMode !== "project"){
             myData.navBarSelected = [viewMode, ''];
-            renderEntries();
-            activeTabsEvent();
-            entriesEvents();
 
         }else{
             myData.navBarSelected = [viewMode, id];
@@ -99,10 +96,10 @@ const actions = {
                 }
             }
             myData.currentProjectIndex = i;
-            renderEntries();
-            activeTabsEvent();
-            entriesEvents();
         }
+        renderEntries();
+        activeTabsEvent();
+        entriesEvents();
     },
 
     "create a project": function(projectName){
