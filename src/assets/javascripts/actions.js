@@ -215,10 +215,11 @@ const actions = {
         const change = getDetailModalInfo();
         const project = myData.projects[myData.currentProjectIndex];
         const task = project.tasks[myData.currentTaskIndex];
+        const today = formatDate(new Date(), 'yyyy-LL-dd');
         if(task){
             task.projectName = change.projectName || task.projectName;
             task.taskTitle = change.taskTitle || task.taskTitle;
-            task.dueDate = change.dueDate;
+            task.dueDate = change.dueDate !== '' ? change.dueDate : today;
             task.priority = change.priority;
             task.notes = change.notes;
             task.isDone = change.isDone;
