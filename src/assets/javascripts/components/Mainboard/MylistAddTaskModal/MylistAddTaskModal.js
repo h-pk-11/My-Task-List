@@ -1,43 +1,40 @@
-import { myData, html } from '../../../data.js';
+import { myData, html } from '../../../data';
+
 const appWrapper = document.querySelector('.appWrapper');
 
 const appTask_modal_mylist = appWrapper.querySelector('.appTask-modal_mylist');
 
 const mylist__list_items = appTask_modal_mylist.querySelector('.mylist__list_items');
 
-export function updateMylistAddTaskModal(){
-    const viewMode = myData.navBarSelected[0];
-    const id = myData.navBarSelected[1];
-    const currentProjectIndex = myData.currentProjectIndex
-    let curProjectIndex;
-    if(viewMode === 'project'){
-        let i = 0;
-        for(; i < myData.projects.length; i++){
-            if(myData.projects[i].id === id){
-                break;
-            }
-        }
-        curProjectIndex = i;
-        if(!isNaN(currentProjectIndex) && currentProjectIndex !== curProjectIndex){
-            curProjectIndex = currentProjectIndex;
-        }
-    }else{
-        if(myData.projects.length >= 1){
-            
-            if(currentProjectIndex){
-                curProjectIndex = currentProjectIndex;
-            }else{
-                curProjectIndex = 0;
-                myData.currentProjectIndex = 0;
-            }
-        }else{
-            curProjectIndex = undefined;
-        }
+export default function updateMylistAddTaskModal() {
+  const viewMode = myData.navBarSelected[0];
+  const id = myData.navBarSelected[1];
+  const { currentProjectIndex } = myData;
+  let curProjectIndex;
+  if (viewMode === 'project') {
+    let i = 0;
+    for (; i < myData.projects.length; i++) {
+      if (myData.projects[i].id === id) {
+        break;
+      }
     }
-    
-    mylist__list_items.innerHTML = myData.projects
-            .map((project, index) => {
-                return html`
+    curProjectIndex = i;
+    if (!Number.isNaN(currentProjectIndex) && currentProjectIndex !== curProjectIndex) {
+      curProjectIndex = currentProjectIndex;
+    }
+  } else if (myData.projects.length >= 1) {
+    if (currentProjectIndex) {
+      curProjectIndex = currentProjectIndex;
+    } else {
+      curProjectIndex = 0;
+      myData.currentProjectIndex = 0;
+    }
+  } else {
+    curProjectIndex = undefined;
+  }
+
+  mylist__list_items.innerHTML = myData.projects
+    .map((project, index) => html`
                     <div class="mylist__item">
             
                         <button data-index="${index}" class="mylist__item-btn">
@@ -50,7 +47,7 @@ export function updateMylistAddTaskModal(){
 
                                 <div class="mylist__item-icon">
 
-                                    ${ index ===  curProjectIndex && `
+                                    ${index === curProjectIndex && `
                                         <svg width="24" height="24" viewBox="0 0 24 24">
 
                                             <g fill="none" fill-rule="evenodd">
@@ -67,7 +64,6 @@ export function updateMylistAddTaskModal(){
                         </button>
 
                     </div>
-                `;
-            })
-            .join('');
+                `)
+    .join('');
 }

@@ -1,4 +1,4 @@
-import { myData, html } from '../../../data.js';
+import { myData, html } from '../../../data';
 
 const appWrapper = document.querySelector('.appWrapper');
 const backdropModal_priority = appWrapper.querySelector('.backdropModal_priority');
@@ -6,14 +6,13 @@ const backdropModal_tab_priority_list = backdropModal_priority.querySelector('.b
 
 const priorityArr = ['High', 'Medium', 'Low'];
 
-export function updateBackdropPriorityModal(){
-    const currentProjectIndex = myData.currentProjectIndex;
-    const currentTaskIndex = myData.currentTaskIndex;
-    const currentPriority = myData.projects[currentProjectIndex].tasks[currentTaskIndex].priority;
+export default function updateBackdropPriorityModal() {
+  const { currentProjectIndex } = myData;
+  const { currentTaskIndex } = myData;
+  const currentPriority = myData.projects[currentProjectIndex].tasks[currentTaskIndex].priority;
 
-    backdropModal_tab_priority_list.innerHTML = priorityArr
-            .map((item, index) => {
-                return html`
+  backdropModal_tab_priority_list.innerHTML = priorityArr
+    .map((item, index) => html`
                     <div class="backdropModal_tab-item">
                         <button type="button" class="iconButton" data-index="${index}">
                             <div class="backdropModal_tab-item-content">
@@ -37,7 +36,6 @@ export function updateBackdropPriorityModal(){
                             
                         </button>
                     </div>
-                `;
-            })
-            .join('');
+                `)
+    .join('');
 }

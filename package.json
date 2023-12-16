@@ -7,6 +7,12 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "image-minimizer-webpack-plugin": "^3.8.3",
@@ -27,7 +33,9 @@
     "start": "webpack serve --open-app-name chrome --config webpack.dev.js",
     "devbuild": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "push": "git subtree push --prefix build origin gh-pages"
+    "push": "git subtree push --prefix build origin gh-pages",
+    "lint": "eslint ./src/assets/javascripts/*",
+    "lintfix": "eslint ./src/assets/javascripts/* --fix"
   },
   "author": "",
   "license": "ISC",

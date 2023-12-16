@@ -1,14 +1,13 @@
-import { myData, html } from '../../../data.js';
+import { myData, html } from '../../../data';
 
 const appWrapper = document.querySelector('.appWrapper');
 const backdropModal_list = appWrapper.querySelector('.backdropModal_list');
 const backdropModal_tab_list = backdropModal_list.querySelector('.backdropModal_tab-list');
 
-export function updateBackdropListModal(){
-    const currentProjectIndex = myData.currentProjectIndex;
-    backdropModal_tab_list.innerHTML = myData.projects
-            .map((project, index) => {
-                return html`
+export default function updateBackdropListModal() {
+  const { currentProjectIndex } = myData;
+  backdropModal_tab_list.innerHTML = myData.projects
+    .map((project, index) => html`
                     <div class="backdropModal_tab-item">
                         <button type="button" class="iconButton" data-index="${index}">
                             <div class="backdropModal_tab-item-content">
@@ -30,8 +29,6 @@ export function updateBackdropListModal(){
                             
                         </button>
                     </div>
-                `;
-            })
-            .join('');
-
+                `)
+    .join('');
 }
