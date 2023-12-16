@@ -271,7 +271,7 @@ export function setCurentTime() {
 export function entriesEvents() {
   const myDayRouteEntries__items = myDayRouteEntries__list.querySelectorAll('.myDayRouteEntries__item');
 
-  /// //// click on an entry event - detail backbrop modal ////////
+  // click on an entry event - detail backbrop modal
   function getDetailCard() {
     if (!appTask_modal__taskDetail.classList.contains('appTask-modal__taskDetail--active')) {
       appTask_modal__taskDetail.classList.add('appTask-modal__taskDetail--active');
@@ -332,7 +332,7 @@ export function entriesEvents() {
     }
   }
 
-  /// ///////// click on checkbox of an entry ///////////////
+  // click on checkbox of an entry
   function clickCheckboxEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const checkboxEle = entryItem.querySelector('.myDayRouteEntries__itemcheckbox');
@@ -350,7 +350,7 @@ export function entriesEvents() {
     }
   }
 
-  /// ///////// click on pin of an entry ///////////////
+  // click on pin of an entry
   function clickPinEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const pinEle = entryItem.querySelector('.modifyButton_pin');
@@ -369,7 +369,7 @@ export function entriesEvents() {
     }
   }
 
-  /// ///////// click on remove button of an entry ///////////////
+  // click on remove button of an entry
   function clickRemoveEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const removeEle = entryItem.querySelector('.modifyButton_remove');
@@ -387,7 +387,7 @@ export function entriesEvents() {
     }
   }
 
-  /// ///////// click on detail button of an entry ///////////////
+  // click on detail button of an entry
   function clickDetailEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const modifyEle = entryItem.querySelector('.modifyButton_modify');
