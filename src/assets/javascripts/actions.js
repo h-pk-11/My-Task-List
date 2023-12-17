@@ -1,16 +1,16 @@
-import { myData } from './data';
-import LocalStorage from './LocalStorage/LocalStorage';
-import formatDate from './date';
-import handler from './eventHandlers';
+import { myData } from "./data";
+import LocalStorage from "./LocalStorage/LocalStorage";
+import formatDate from "./date";
+import handler from "./eventHandlers";
 
 // from backdropmodallist
-import updateBackdropListModal from './components/Mainboard/BackdropModalList/BackdropModalList';
+import updateBackdropListModal from "./components/Mainboard/BackdropModalList/BackdropModalList";
 
 // from backdropmodalpriority
-import updateBackdropPriorityModal from './components/Mainboard/BackdropModalPriority/BackdropModalPriority';
+import updateBackdropPriorityModal from "./components/Mainboard/BackdropModalPriority/BackdropModalPriority";
 
 // from mylistaddtaskmodal
-import updateMylistAddTaskModal from './components/Mainboard/MylistAddTaskModal/MylistAddTaskModal';
+import updateMylistAddTaskModal from "./components/Mainboard/MylistAddTaskModal/MylistAddTaskModal";
 
 // from backdropmodaldetail
 import {
@@ -18,7 +18,7 @@ import {
   getDetailModalInfo,
   updateProjectInDetailModal,
   updatePriorityInDetailModal,
-} from './components/Mainboard/BackdropModalDetail/BackdropModalDetail';
+} from "./components/Mainboard/BackdropModalDetail/BackdropModalDetail";
 
 function generateId(arr) {
   let number = Math.floor(Math.random() * 1000);
@@ -48,9 +48,9 @@ function generateId(arr) {
 
 let actions;
 export default actions = {
-  'change view mode': function (viewMode, id) {
-    if (viewMode !== 'project') {
-      myData.navBarSelected = [viewMode, ''];
+  "change view mode": function (viewMode, id) {
+    if (viewMode !== "project") {
+      myData.navBarSelected = [viewMode, ""];
     } else {
       myData.navBarSelected = [viewMode, id];
       let i = 0;
@@ -63,7 +63,7 @@ export default actions = {
     }
   },
 
-  'create a project': function (projectName) {
+  "create a project": function (projectName) {
     const id = generateId(myData.projects);
     myData.projects.push({
       id,
@@ -73,7 +73,7 @@ export default actions = {
     LocalStorage.set(myData.projects);
   },
 
-  'change project name': function (projectName, id) {
+  "change project name": function (projectName, id) {
     let i = 0;
     for (; i < myData.projects.length; i++) {
       if (myData.projects[i].id === id) {
@@ -88,7 +88,7 @@ export default actions = {
     LocalStorage.set(myData.projects);
   },
 
-  'delete project': function (id) {
+  "delete project": function (id) {
     let i = 0;
     for (; i < myData.projects.length; i++) {
       if (myData.projects[i].id === id) {
@@ -97,13 +97,13 @@ export default actions = {
     }
     if (myData.navBarSelected[1] === id) {
       if (i - 1 >= 0) {
-        myData.navBarSelected = ['project', myData.projects[i - 1].id];
+        myData.navBarSelected = ["project", myData.projects[i - 1].id];
         myData.currentProjectIndex = i - 1;
       } else if (i + 1 < myData.projects.length) {
-        myData.navBarSelected = ['project', myData.projects[i + 1].id];
+        myData.navBarSelected = ["project", myData.projects[i + 1].id];
         myData.currentProjectIndex = i + 1;
       } else if (i === 0) {
-        myData.navBarSelected = ['All my tasks', ''];
+        myData.navBarSelected = ["All my tasks", ""];
         myData.currentProjectIndex = undefined;
       }
     }
@@ -112,28 +112,26 @@ export default actions = {
     return myData.projects.length;
   },
 
-  'toggle task checkbox': function (projectIndex, taskIndex) {
-    myData.projects[projectIndex]
-      .tasks[taskIndex]
-      .isDone = !myData.projects[projectIndex].tasks[taskIndex].isDone;
+  "toggle task checkbox": function (projectIndex, taskIndex) {
+    myData.projects[projectIndex].tasks[taskIndex].isDone =
+      !myData.projects[projectIndex].tasks[taskIndex].isDone;
 
     LocalStorage.set(myData.projects);
   },
 
-  'toggle task pin': function (projectIndex, taskIndex) {
-    myData.projects[projectIndex]
-      .tasks[taskIndex]
-      .isPin = !myData.projects[projectIndex].tasks[taskIndex].isPin;
+  "toggle task pin": function (projectIndex, taskIndex) {
+    myData.projects[projectIndex].tasks[taskIndex].isPin =
+      !myData.projects[projectIndex].tasks[taskIndex].isPin;
 
     LocalStorage.set(myData.projects);
   },
 
-  'remove task': function (projectIndex, taskIndex) {
+  "remove task": function (projectIndex, taskIndex) {
     myData.projects[projectIndex].tasks.splice(taskIndex, 1);
     LocalStorage.set(myData.projects);
   },
 
-  'inform detail modal': function (projectIndex, taskIndex) {
+  "inform detail modal": function (projectIndex, taskIndex) {
     const { projectName } = myData.projects[projectIndex];
     const task = myData.projects[projectIndex].tasks[taskIndex];
     const { taskTitle } = task;
@@ -144,15 +142,15 @@ export default actions = {
     informDetailModal(projectName, taskTitle, duadate, isDone, priority, notes);
   },
 
-  'save detail info': function () {
+  "save detail info": function () {
     const change = getDetailModalInfo();
     const project = myData.projects[myData.currentProjectIndex];
     const task = project.tasks[myData.currentTaskIndex];
-    const today = formatDate(new Date(), 'yyyy-LL-dd');
+    const today = formatDate(new Date(), "yyyy-LL-dd");
     if (task) {
       task.projectName = change.projectName || task.projectName;
       task.taskTitle = change.taskTitle || task.taskTitle;
-      task.dueDate = change.dueDate !== '' ? change.dueDate : today;
+      task.dueDate = change.dueDate !== "" ? change.dueDate : today;
       task.priority = change.priority;
       task.notes = change.notes;
       task.isDone = change.isDone;
@@ -162,19 +160,19 @@ export default actions = {
     LocalStorage.set(myData.projects);
   },
 
-  'update current indexes': function (projectIndex, taskIndex) {
+  "update current indexes": function (projectIndex, taskIndex) {
     myData.currentProjectIndex = projectIndex;
     myData.currentTaskIndex = taskIndex;
   },
 
-  'update current project to view mode': function () {
+  "update current project to view mode": function () {
     let projectIndex;
     const viewMode = myData.navBarSelected[0];
-    if (viewMode !== 'project') {
+    if (viewMode !== "project") {
       projectIndex = 0;
     } else {
       let i = 0;
-      for (;i < myData.projects.length; ++i) {
+      for (; i < myData.projects.length; ++i) {
         if (myData.projects[i].id === myData.navBarSelected[1]) {
           break;
         }
@@ -184,11 +182,11 @@ export default actions = {
     myData.currentProjectIndex = projectIndex;
   },
 
-  'update backdrop list modal': function () {
+  "update backdrop list modal": function () {
     updateBackdropListModal();
   },
 
-  'update project of the task': function (newProjectIndex) {
+  "update project of the task": function (newProjectIndex) {
     const { currentProjectIndex } = myData;
     const { currentTaskIndex } = myData;
 
@@ -208,11 +206,11 @@ export default actions = {
     return newTaskIndex;
   },
 
-  'update backdrop priority modal': function () {
+  "update backdrop priority modal": function () {
     updateBackdropPriorityModal();
   },
 
-  'update priority of the task': function (index) {
+  "update priority of the task": function (index) {
     const { currentProjectIndex } = myData;
     const { currentTaskIndex } = myData;
 
@@ -220,66 +218,68 @@ export default actions = {
 
     switch (index) {
       case 0: {
-        task.priority = 'High';
+        task.priority = "High";
         break;
       }
 
       case 1: {
-        task.priority = 'Medium';
+        task.priority = "Medium";
         break;
       }
 
       case 2: {
-        task.priority = 'Low';
+        task.priority = "Low";
         break;
       }
 
-      default: break;
+      default:
+        break;
     }
     LocalStorage.set(myData.projects);
   },
 
-  'update project in detail modal': function (newSelectedIndex) {
+  "update project in detail modal": function (newSelectedIndex) {
     const { projectName } = myData.projects[newSelectedIndex];
     updateProjectInDetailModal(projectName);
   },
 
-  'update priority in detail modal': function (newSelectedIndex) {
+  "update priority in detail modal": function (newSelectedIndex) {
     let priority;
     switch (newSelectedIndex) {
       case 0: {
-        priority = 'High';
+        priority = "High";
         break;
       }
 
       case 1: {
-        priority = 'Medium';
+        priority = "Medium";
         break;
       }
 
       case 2: {
-        priority = 'Low';
+        priority = "Low";
         break;
       }
 
-      default: break;
+      default:
+        break;
     }
 
     updatePriorityInDetailModal(priority);
   },
 
-  'update my list addtask modal': function () {
+  "update my list addtask modal": function () {
     updateMylistAddTaskModal();
   },
 
-  'create a new task': function (taskTitle) {
+  "create a new task": function (taskTitle) {
     const { currentProjectIndex } = myData;
     const project = myData.projects[currentProjectIndex];
     const id = generateId(project.tasks);
     const { projectName } = project;
-    const dueDate = formatDate(new Date(), 'yyyy-LL-dd');
-    const priority = 'Medium';
-    const notes = '';
+    const dueDate = formatDate(new Date(), "yyyy-LL-dd");
+    const priority = "Medium";
+    const notes = "";
     const isDone = false;
     const isPin = false;
     const newTask = {
@@ -295,11 +295,10 @@ export default actions = {
     project.tasks.push(newTask);
     LocalStorage.set(myData.projects);
   },
-
 };
 
 const actionKeys = Object.keys(actions);
 
 for (let i = 0; i < actionKeys.length; i++) {
-  handler.on(`${actionKeys[i]}`, actions[`${actionKeys[i]}`], 'actions');
+  handler.on(`${actionKeys[i]}`, actions[`${actionKeys[i]}`], "actions");
 }

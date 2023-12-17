@@ -1,230 +1,250 @@
 /* font-face */
 /* Inter */
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter/Inter-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter/Inter-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter/Inter-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter/Inter-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-    --default-font-family: "Inter", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-family: serif, system-ui;
+  --default-font-family: "Inter", system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: serif, system-ui;
 
-    --text-color-1: #030303;
-    --text-color-2: #9b9b9b;
-    --text-color-3: #d8d8d8;
-    --brand-color: #0083ff;
-    
+  --text-color-1: #030303;
+  --text-color-2: #9b9b9b;
+  --text-color-3: #d8d8d8;
+  --brand-color: #0083ff;
 
-/* ********* */
-    --action-color: #0083ff;
-    --action-button-text-color: #fff;
-    --add-card-label-color: #b2b2b2;
-    --add-card-bg-enter-btn-color: hsla(0,0%,54%,.25);
-    --add-card-placeholder-color: #b2b2b2;
-    --add-card-placeholder-color-2: #d8d8d8;
-    --app-sidebar-highlighted-text-color: #0083ff;
-    --app-dropdown-highlighted-item-color: #ededed;
-    
+  /* ********* */
+  --action-color: #0083ff;
+  --action-button-text-color: #fff;
+  --add-card-label-color: #b2b2b2;
+  --add-card-bg-enter-btn-color: hsla(0, 0%, 54%, 0.25);
+  --add-card-placeholder-color: #b2b2b2;
+  --add-card-placeholder-color-2: #d8d8d8;
+  --app-sidebar-highlighted-text-color: #0083ff;
+  --app-dropdown-highlighted-item-color: #ededed;
 
-    --badge-text-color: #9b9b9b;
-    --badge-bg-color: #ededed;
-    --badge-bg-hover-color: var(--sidebar-bg-color);
-    --backdrop-color: rgba(0, 0, 0, .5);
-    --box-shadow-bottom-transparent-color: transparent;
-    --box-shadow-top-dull-color: rgba(0, 0, 0, 0.05);
-    --box-shadow-focus-ring: 0 0 0 6px hsla(0,0%,54%,.25);
+  --badge-text-color: #9b9b9b;
+  --badge-bg-color: #ededed;
+  --badge-bg-hover-color: var(--sidebar-bg-color);
+  --backdrop-color: rgba(0, 0, 0, 0.5);
+  --box-shadow-bottom-transparent-color: transparent;
+  --box-shadow-top-dull-color: rgba(0, 0, 0, 0.05);
+  --box-shadow-focus-ring: 0 0 0 6px hsla(0, 0%, 54%, 0.25);
 
-    --card-bg-1-color: #fff;
-    --card-bg-2-color: #fff;
-    --card-border-color: #ededed;
-    --card-bg-current-color: #fff;
-    --card-bg-hover-color: #f7f7f7;
-    --card-item-bg-highlighted-color: #ededed;
-    --confirm-color: #0083ff;
-    --confirm-color-2: #23ce88;
+  --card-bg-1-color: #fff;
+  --card-bg-2-color: #fff;
+  --card-border-color: #ededed;
+  --card-bg-current-color: #fff;
+  --card-bg-hover-color: #f7f7f7;
+  --card-item-bg-highlighted-color: #ededed;
+  --confirm-color: #0083ff;
+  --confirm-color-2: #23ce88;
 
-    --input-date-color: #F8C8DC;
-    --item-hover-bg-color: #f7f7f7;
+  --input-date-color: #f8c8dc;
+  --item-hover-bg-color: #f7f7f7;
 
-    --mainboard-bg-color: transparent;
-    --myDayRoute-bg-color: #fff;
-    --myDayAddTask-bg-color: #fff;
+  --mainboard-bg-color: transparent;
+  --myDayRoute-bg-color: #fff;
+  --myDayAddTask-bg-color: #fff;
 
-    --pane-box-shadow-large: 0 2px 15px 0 rgba(0,0,0,.1);
-    --pane-box-shadow:  0 1px 4px rgba(0,0,0,.04),0 2px 18px rgba(0,0,0,.08);
+  --pane-box-shadow-large: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  --pane-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+    0 2px 18px rgba(0, 0, 0, 0.08);
 
-    --priority-high-color: rgb(255, 61, 86);
-    --priority-high-blur-color: rgba(255, 61, 86, 0.4);
-    --priority-medium-color: rgb(255, 185, 0);
-    --priority-medium-blur-color: rgba(255, 185, 0, 0.4);
-    --priority-low-color: rgb(93, 219, 106);
-    --priority-low-blur-color: rgba(93, 219, 106, 0.4);
-    --priority-checked-color: var(--text-color-2);
+  --priority-high-color: rgb(255, 61, 86);
+  --priority-high-blur-color: rgba(255, 61, 86, 0.4);
+  --priority-medium-color: rgb(255, 185, 0);
+  --priority-medium-blur-color: rgba(255, 185, 0, 0.4);
+  --priority-low-color: rgb(93, 219, 106);
+  --priority-low-blur-color: rgba(93, 219, 106, 0.4);
+  --priority-checked-color: var(--text-color-2);
 
-    --task-item-checkbox-bg-color: var(--text-color-2);
-    --textfield-bg-color: #fff;
-    --textfield-text-color: var(--text-color-1);
-    --textfield-placeholder-color: var(--text-color-3);
+  --task-item-checkbox-bg-color: var(--text-color-2);
+  --textfield-bg-color: #fff;
+  --textfield-text-color: var(--text-color-1);
+  --textfield-placeholder-color: var(--text-color-3);
 
-    --scrollbar-thumb-bg-color: var(--text-color-3);
-    --scrollbar-thumb-bg-color-2: var(--brand-color);
-    --scrollbar-pane-bg-color: var(--sidebar-bg-color);
-    --separator-color: #d8d8d8;
-    --section-shadow: 0 1px 4px rgba(0,0,0,.04),0 2px 18px rgba(0,0,0,.08);
-    --sidebar-bg-color: #fff;
+  --scrollbar-thumb-bg-color: var(--text-color-3);
+  --scrollbar-thumb-bg-color-2: var(--brand-color);
+  --scrollbar-pane-bg-color: var(--sidebar-bg-color);
+  --separator-color: #d8d8d8;
+  --section-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+    0 2px 18px rgba(0, 0, 0, 0.08);
+  --sidebar-bg-color: #fff;
 
-    --textfield-bg-focus-color: #f6f6f6;
-    --task-project-icon-color: #f5a623;
-    --task-priority-icon-color: #23ce88;
+  --textfield-bg-focus-color: #f6f6f6;
+  --task-project-icon-color: #f5a623;
+  --task-priority-icon-color: #23ce88;
 
+  /* ********* */
+  --add-card-line-height: 1.6rem;
+  --add-card-border-radius: 6px;
+  --add-card-height: 40px;
+  --add-card-dynamic-height: 40px;
+  --add-card-padding: 12px;
+  --add-card-padding-top: 12px;
+  --add-card-padding-bottom: 12px;
+  --app-sizebar-width: 240px;
+  --app-sizebar-translateX: 0px;
+  --app-sidebar-padding: 24px;
+  --app-sidebar-padding-left: var(--app-sidebar-padding);
+  --app-sidebar-padding-top: var(--app-sidebar-padding);
+  --app-sidebar-avatar-size: 40px;
+  --app-sidebar-item-height: 40px;
+  --app-sidebar-category-icon-margin: 11px;
+  --app-sidebar-icon-container-size: 20px;
+  --app-sidebar-item-icon-size: 24px;
+  --app-sidebar-item-header-padding: 24px;
+  --app-mainboard-padding-top: 24px;
+  --app-mainboard-padding-bottom: 24px;
+  --app-mainboard-padding-left: 16px;
+  --app-mainboard-padding-right: 16px;
+  --app-mainboard-content-width: 720px;
+  --app-dropdown-item-height: 40px;
+  --app-dropdown-menu-shadow: 4px 10px 30px rgba(0, 0, 0, 0.1);
 
+  --badge-size: 22px;
+  --backdropModal_list-padding: 10px;
+  --backdropModal_list-width: 400px;
+  --backdropModal_list-heading-height: 60px;
+  --backdropModal_list-item-height: 44px;
+  --backdropModal_list-item-max: 6;
+  --backdropModal_list-item-curent: 9;
+  --backdropModal_list-height: min(
+    calc(
+      var(--backdropModal_list-item-height) *
+        var(--backdropModal_list-item-curent) + 2px
+    ),
+    var(--backdropModal_list-max-height)
+  );
 
-/* ********* */
-    --add-card-line-height: 1.6rem;
-    --add-card-border-radius: 6px;
-    --add-card-height: 40px;
-    --add-card-dynamic-height: 40px;
-    --add-card-padding: 12px;
-    --add-card-padding-top: 12px;
-    --add-card-padding-bottom: 12px;
-    --app-sizebar-width: 240px;
-    --app-sizebar-translateX: 0px;
-    --app-sidebar-padding: 24px;
-    --app-sidebar-padding-left: var(--app-sidebar-padding);
-    --app-sidebar-padding-top: var(--app-sidebar-padding);
-    --app-sidebar-avatar-size: 40px;
-    --app-sidebar-item-height: 40px;
-    --app-sidebar-category-icon-margin: 11px;
-    --app-sidebar-icon-container-size: 20px;
-    --app-sidebar-item-icon-size: 24px;
-    --app-sidebar-item-header-padding: 24px;
-    --app-mainboard-padding-top: 24px;
-    --app-mainboard-padding-bottom: 24px;
-    --app-mainboard-padding-left: 16px;
-    --app-mainboard-padding-right: 16px;
-    --app-mainboard-content-width: 720px;
-    --app-dropdown-item-height: 40px;
-    --app-dropdown-menu-shadow: 4px 10px 30px rgba(0,0,0,.1);
+  --backdropModal_list-max-height: calc(
+    var(--backdropModal_list-item-height) * var(--backdropModal_list-item-max) +
+      2px
+  );
 
-    --badge-size: 22px;
-    --backdropModal_list-padding: 10px;
-    --backdropModal_list-width: 400px;
-    --backdropModal_list-heading-height: 60px;
-    --backdropModal_list-item-height: 44px;
-    --backdropModal_list-item-max: 6;
-    --backdropModal_list-item-curent: 9;
-    --backdropModal_list-height: min(calc(var(--backdropModal_list-item-height) * var(--backdropModal_list-item-curent) + 2px), var(--backdropModal_list-max-height));
+  --backdropModal_priority-item-height: 44px;
+  --backdropModal_priority-height: calc(
+    var(--backdropModal_priority-item-height) * 3 + 2px
+  );
 
-    --backdropModal_list-max-height: calc(var(--backdropModal_list-item-height) * var(--backdropModal_list-item-max) + 2px);
+  --box-shadow-height: 12px;
 
-    --backdropModal_priority-item-height: 44px;
-    --backdropModal_priority-height: calc(var(--backdropModal_priority-item-height) * 3 + 2px);
+  --card-border-radius: 16px;
+  --card-padding: 8px;
+  --card-button-size: 36px;
+  --task-item-checkbox-button-size: 18px;
 
-    --box-shadow-height: 12px;
+  --detailtask-textarea-height: 28px;
+  --taskDetail-width: 570px;
+  --taskDetail-height: 350px;
+  --taskDetail-padding: 24px;
 
-    --card-border-radius: 16px;
-    --card-padding: 8px;
-    --card-button-size: 36px;
-    --task-item-checkbox-button-size: 18px;
+  --detailtask-textareaNotes-height: 20px;
 
-    --detailtask-textarea-height: 28px;
-    --taskDetail-width: 570px;
-    --taskDetail-height: 350px;
-    --taskDetail-padding: 24px;
+  --modal-border-radius: 12px;
 
-    --detailtask-textareaNotes-height: 20px;
+  --font-size-heading-sm: 1.7rem;
+  --font-size-heading-lg: 2.8rem;
+  --font-size-text-md: 1.5rem;
 
-    --modal-border-radius: 12px;
+  --grid-row-gap: 10px;
 
-    --font-size-heading-sm: 1.7rem;
-    --font-size-heading-lg: 2.8rem;
-    --font-size-text-md: 1.5rem;
+  --mylist-modal-item-height: 44px;
+  --mylist-modal-item-max: 9;
+  --mylist-modal-item-curent: 5;
+  --mylist-modal-height: min(
+    calc(
+      var(--mylist-modal-item-height) * var(--mylist-modal-item-curent) +
+        var(--mylist-modal-padding) * 2
+    ),
+    var(--mylist-modal-max-height)
+  );
 
-    --grid-row-gap: 10px;
+  --mylist-modal-max-height: calc(
+    var(--mylist-modal-item-height) * var(--mylist-modal-item-max) +
+      var(--mylist-modal-padding) * 2
+  );
 
-    --mylist-modal-item-height: 44px;
-    --mylist-modal-item-max: 9;
-    --mylist-modal-item-curent: 5;
-    --mylist-modal-height: min(calc(var(--mylist-modal-item-height) * var(--mylist-modal-item-curent) + var(--mylist-modal-padding) * 2), var(--mylist-modal-max-height));
+  --mylist-modal-width: 400px;
+  --mylist-modal-padding: 10px;
 
-    --mylist-modal-max-height: calc(var(--mylist-modal-item-height) * var(--mylist-modal-item-max) + var(--mylist-modal-padding) * 2);
+  --radio-button-size: 24px;
 
-    --mylist-modal-width: 400px;
-    --mylist-modal-padding: 10px;
+  --scrollbar-width: 5px;
+  --scrollbar-border-radius: 10rem;
 
-    --radio-button-size: 24px;
+  --task-border-radius: 8px;
+  --task-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02),
+    0 2px 18px rgba(0, 0, 0, 0.05);
 
-    --scrollbar-width: 5px;
-    --scrollbar-border-radius: 10rem;
-
-    --task-border-radius: 8px;
-    --task-box-shadow: 0 1px 4px rgba(0,0,0,.02),0 2px 18px rgba(0,0,0,.05);
-
-    --item-gap: 13px;
-    --modify-icon-app: 4px;
-}   
+  --item-gap: 13px;
+  --modify-icon-app: 4px;
+}
 
 * {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
-    line-height: 1.6rem;
-    font-family: var(--default-font-family);
-    box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: var(--default-font-family);
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 1.5rem;
-    line-height: 2.1rem;
-    margin: 0;
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  margin: 0;
 }
 
 ul {
-    display: block;
-    padding: 0;
-    margin: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    display: block;
+  display: block;
 }
 
 button {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 textarea {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-

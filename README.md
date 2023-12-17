@@ -4,12 +4,12 @@
 
 ---
 
-### Project use 
+### Project use
 
-+ HTML5
-+ CSS3
-+ Vanilla Js
-+ webpack 5
+- HTML5
+- CSS3
+- Vanilla Js
+- webpack 5
 
 ---
 
@@ -29,10 +29,10 @@
 
 ### Live demo
 
-***[My Todos list](https://h-pk-11.github.io/My-Task-List/)***
+**_[My Todos list](https://h-pk-11.github.io/My-Task-List/)_**
 
 ---
 
 ### Reference
 
-Design inspired by ***[any.do](https://www.any.do/en)***
+Design inspired by **_[any.do](https://www.any.do/en)_**

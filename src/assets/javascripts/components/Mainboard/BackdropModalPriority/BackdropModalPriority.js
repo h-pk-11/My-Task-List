@@ -1,27 +1,31 @@
-import { myData, html } from '../../../data';
+import { myData, html } from "../../../data";
 
-const appWrapper = document.querySelector('.appWrapper');
-const backdropModal_priority = appWrapper.querySelector('.backdropModal_priority');
-const backdropModal_tab_priority_list = backdropModal_priority.querySelector('.backdropModal_tab-list');
+const appWrapper = document.querySelector(".appWrapper");
+const backdropModal_priority = appWrapper.querySelector(
+  ".backdropModal_priority",
+);
+const backdropModal_tab_priority_list = backdropModal_priority.querySelector(
+  ".backdropModal_tab-list",
+);
 
-const priorityArr = ['High', 'Medium', 'Low'];
+const priorityArr = ["High", "Medium", "Low"];
 
 export default function updateBackdropPriorityModal() {
   const { currentProjectIndex } = myData;
   const { currentTaskIndex } = myData;
-  const currentPriority = myData.projects[currentProjectIndex].tasks[currentTaskIndex].priority;
+  const currentPriority =
+    myData.projects[currentProjectIndex].tasks[currentTaskIndex].priority;
 
   backdropModal_tab_priority_list.innerHTML = priorityArr
-    .map((item, index) => html`
-                    <div class="backdropModal_tab-item">
-                        <button type="button" class="iconButton" data-index="${index}">
-                            <div class="backdropModal_tab-item-content">
-                                <div class="backdropModal_tab-item-title">
-                                    ${item}
-                                </div>
-                                <div class="backdropModal_tab-item-icon">
-
-                                    ${item === currentPriority && `
+    .map(
+      (item, index) => html`
+        <div class="backdropModal_tab-item">
+          <button type="button" class="iconButton" data-index="${index}">
+            <div class="backdropModal_tab-item-content">
+              <div class="backdropModal_tab-item-title">${item}</div>
+              <div class="backdropModal_tab-item-icon">
+                ${item === currentPriority &&
+                `
                                         <svg width="24" height="24" viewBox="0 0 24 24">
 
                                             <g fill="none" fill-rule="evenodd">
@@ -30,12 +34,11 @@ export default function updateBackdropPriorityModal() {
 
                                         </svg>
                                     `}
-
-                                </div>
-                            </div>
-                            
-                        </button>
-                    </div>
-                `)
-    .join('');
+              </div>
+            </div>
+          </button>
+        </div>
+      `,
+    )
+    .join("");
 }

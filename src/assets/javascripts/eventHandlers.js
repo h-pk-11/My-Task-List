@@ -9,9 +9,9 @@ export default {
       };
     }
 
-    if (action === 'actions') {
+    if (action === "actions") {
       this._eventHandlers[eventName].actions.push(handler);
-    } else if (action === 'renders') {
+    } else if (action === "renders") {
       this._eventHandlers[eventName].renders.push(handler);
     } else {
       this._eventHandlers[eventName].events.push(handler);
@@ -22,13 +22,13 @@ export default {
     const handlers = this._eventHandlers?.[eventName];
     if (!handlers) return;
 
-    if (action === 'actions') {
+    if (action === "actions") {
       for (let i = 0; i < handlers.actions.length; i++) {
         if (handlers.actions[i] === handler) {
           handlers.actions.splice(i--, 1);
         }
       }
-    } else if (action === 'renders') {
+    } else if (action === "renders") {
       for (let i = 0; i < handlers.renders.length; i++) {
         if (handlers.renders[i] === handler) {
           handlers.renders.splice(i--, 1);

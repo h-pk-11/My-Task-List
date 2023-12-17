@@ -1,22 +1,24 @@
-import LocalStorage from './LocalStorage/LocalStorage';
+import LocalStorage from "./LocalStorage/LocalStorage";
 
 export const myData = {
   projects: LocalStorage.get(),
 
   currentProjectIndex: undefined,
   currentTaskIndex: undefined,
-  navBarSelected: ['All my tasks', ''],
+  navBarSelected: ["All my tasks", ""],
 
   filters: {
-    'All my tasks': () => true,
-    'My day': (task) => {
+    "All my tasks": () => true,
+    "My day": (task) => {
       const today = new Date();
       const duaDate = new Date(task.dueDate);
-      return today.getFullYear() === duaDate.getFullYear()
-        && today.getMonth() === duaDate.getMonth()
-        && today.getDate() === duaDate.getDate();
+      return (
+        today.getFullYear() === duaDate.getFullYear() &&
+        today.getMonth() === duaDate.getMonth() &&
+        today.getDate() === duaDate.getDate()
+      );
     },
-    'Next 7 days': (task) => {
+    "Next 7 days": (task) => {
       const today = new Date();
       const nextSevenDay = new Date(
         today.getFullYear(),
@@ -26,7 +28,10 @@ export const myData = {
         0,
       );
       const duaDate = new Date(task.dueDate);
-      return duaDate.getTime() < nextSevenDay.getTime() && duaDate.getTime() >= today.getTime();
+      return (
+        duaDate.getTime() < nextSevenDay.getTime() &&
+        duaDate.getTime() >= today.getTime()
+      );
     },
     isDone: (task) => !task.isDone,
     project: (task) => task.projectId === myData.navBarSelected[1],
@@ -48,14 +53,11 @@ export const myData = {
       if (taskA.isDone === false && taskB.isDone === true) return -1;
     },
   },
-
 };
 
 export function html([first, ...string], ...values) {
-  return values.reduce(
-    (acc, cur) => acc.concat(cur, string.shift()),
-    [first],
-  )
-    .filter((x) => ((x && x !== true) || x === 0))
-    .join('');
+  return values
+    .reduce((acc, cur) => acc.concat(cur, string.shift()), [first])
+    .filter((x) => (x && x !== true) || x === 0)
+    .join("");
 }

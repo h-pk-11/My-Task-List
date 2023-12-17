@@ -1,5 +1,5 @@
-import handler from './eventHandlers';
-import actions from './actions';
+import handler from "./eventHandlers";
+import actions from "./actions";
 
 // sidebar
 import {
@@ -7,7 +7,7 @@ import {
   activeTabsEvent,
   renderModeCount,
   renderProjectsList,
-} from './components/Sidebar/Sidebar';
+} from "./components/Sidebar/Sidebar";
 
 // mainboard
 import {
@@ -15,7 +15,7 @@ import {
   renderEntries,
   addTaskEvents,
   entriesEvents,
-} from './components/Mainboard/Mainboard';
+} from "./components/Mainboard/Mainboard";
 
 function render() {
   renderModeCount();
@@ -49,11 +49,11 @@ export default (function () {
   return {
     start,
   };
-}());
+})();
 
 const actionKeys = Object.keys(actions);
 
 for (let i = 0; i < actionKeys.length; i++) {
-  handler.on(`${actionKeys[i]}`, render, 'renders');
-  handler.on(`${actionKeys[i]}`, activeEvents, 'events');
+  handler.on(`${actionKeys[i]}`, render, "renders");
+  handler.on(`${actionKeys[i]}`, activeEvents, "events");
 }

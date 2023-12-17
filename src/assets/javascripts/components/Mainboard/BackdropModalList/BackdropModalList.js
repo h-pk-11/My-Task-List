@@ -1,21 +1,25 @@
-import { myData, html } from '../../../data';
+import { myData, html } from "../../../data";
 
-const appWrapper = document.querySelector('.appWrapper');
-const backdropModal_list = appWrapper.querySelector('.backdropModal_list');
-const backdropModal_tab_list = backdropModal_list.querySelector('.backdropModal_tab-list');
+const appWrapper = document.querySelector(".appWrapper");
+const backdropModal_list = appWrapper.querySelector(".backdropModal_list");
+const backdropModal_tab_list = backdropModal_list.querySelector(
+  ".backdropModal_tab-list",
+);
 
 export default function updateBackdropListModal() {
   const { currentProjectIndex } = myData;
   backdropModal_tab_list.innerHTML = myData.projects
-    .map((project, index) => html`
-                    <div class="backdropModal_tab-item">
-                        <button type="button" class="iconButton" data-index="${index}">
-                            <div class="backdropModal_tab-item-content">
-                                <div class="backdropModal_tab-item-title">
-                                    ${project.projectName}
-                                </div>
-                                <div class="backdropModal_tab-item-icon">
-                                    ${index === currentProjectIndex && `
+    .map(
+      (project, index) => html`
+        <div class="backdropModal_tab-item">
+          <button type="button" class="iconButton" data-index="${index}">
+            <div class="backdropModal_tab-item-content">
+              <div class="backdropModal_tab-item-title">
+                ${project.projectName}
+              </div>
+              <div class="backdropModal_tab-item-icon">
+                ${index === currentProjectIndex &&
+                `
                                         <svg width="24" height="24" viewBox="0 0 24 24">
 
                                             <g fill="none" fill-rule="evenodd">
@@ -24,11 +28,11 @@ export default function updateBackdropListModal() {
                         
                                         </svg>
                                     `}
-                                </div>
-                            </div>
-                            
-                        </button>
-                    </div>
-                `)
-    .join('');
+              </div>
+            </div>
+          </button>
+        </div>
+      `,
+    )
+    .join("");
 }

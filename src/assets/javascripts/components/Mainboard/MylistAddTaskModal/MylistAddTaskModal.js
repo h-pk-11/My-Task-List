@@ -1,17 +1,19 @@
-import { myData, html } from '../../../data';
+import { myData, html } from "../../../data";
 
-const appWrapper = document.querySelector('.appWrapper');
+const appWrapper = document.querySelector(".appWrapper");
 
-const appTask_modal_mylist = appWrapper.querySelector('.appTask-modal_mylist');
+const appTask_modal_mylist = appWrapper.querySelector(".appTask-modal_mylist");
 
-const mylist__list_items = appTask_modal_mylist.querySelector('.mylist__list_items');
+const mylist__list_items = appTask_modal_mylist.querySelector(
+  ".mylist__list_items",
+);
 
 export default function updateMylistAddTaskModal() {
   const viewMode = myData.navBarSelected[0];
   const id = myData.navBarSelected[1];
   const { currentProjectIndex } = myData;
   let curProjectIndex;
-  if (viewMode === 'project') {
+  if (viewMode === "project") {
     let i = 0;
     for (; i < myData.projects.length; i++) {
       if (myData.projects[i].id === id) {
@@ -19,7 +21,10 @@ export default function updateMylistAddTaskModal() {
       }
     }
     curProjectIndex = i;
-    if (!Number.isNaN(currentProjectIndex) && currentProjectIndex !== curProjectIndex) {
+    if (
+      !Number.isNaN(currentProjectIndex) &&
+      currentProjectIndex !== curProjectIndex
+    ) {
       curProjectIndex = currentProjectIndex;
     }
   } else if (myData.projects.length >= 1) {
@@ -34,20 +39,16 @@ export default function updateMylistAddTaskModal() {
   }
 
   mylist__list_items.innerHTML = myData.projects
-    .map((project, index) => html`
-                    <div class="mylist__item">
-            
-                        <button data-index="${index}" class="mylist__item-btn">
+    .map(
+      (project, index) => html`
+        <div class="mylist__item">
+          <button data-index="${index}" class="mylist__item-btn">
+            <div class="mylist__item-content">
+              <div class="mylist__item-title">${project.projectName}</div>
 
-                            <div class="mylist__item-content">
-                                
-                                <div class="mylist__item-title">
-                                    ${project.projectName}
-                                </div>
-
-                                <div class="mylist__item-icon">
-
-                                    ${index === curProjectIndex && `
+              <div class="mylist__item-icon">
+                ${index === curProjectIndex &&
+                `
                                         <svg width="24" height="24" viewBox="0 0 24 24">
 
                                             <g fill="none" fill-rule="evenodd">
@@ -56,14 +57,11 @@ export default function updateMylistAddTaskModal() {
 
                                         </svg>
                                     `}
-
-                                </div>
-
-                            </div>
-
-                        </button>
-
-                    </div>
-                `)
-    .join('');
+              </div>
+            </div>
+          </button>
+        </div>
+      `,
+    )
+    .join("");
 }
