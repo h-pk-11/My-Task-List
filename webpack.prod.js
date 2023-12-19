@@ -1,11 +1,11 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const common = require("./webpack.common");
 
 module.exports = merge(common, {
   mode: "production",
@@ -13,6 +13,9 @@ module.exports = merge(common, {
     filename: "./static/js/main.[contenthash].min.js",
     path: path.resolve(__dirname, "build"),
     clean: true,
+    environment: {
+      arrowFunction: false,
+    },
   },
   devtool: "source-map",
   plugins: [
@@ -27,11 +30,22 @@ module.exports = merge(common, {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [["@babel/preset-env", { targets: "defaults" }]],
+            cacheDirectory: true,
+          },
+        },
+      },
     ],
   },
   optimization: {
     minimizer: [
-      `...`,
+      "...",
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "template.html"),
         filename: "./index.html",

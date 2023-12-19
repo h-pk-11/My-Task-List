@@ -21,6 +21,7 @@
       "error",
       "double",
       { "avoidEscape": false, "allowTemplateLiterals": false }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.common.js", "**/*.dev.js", "**/*.prod.js"]}]
   }
 }
