@@ -45,7 +45,7 @@ export default {
 
   trigger(eventName, ...args) {
     if (!this._eventHandlers?.[eventName]) {
-      return;
+      return undefined;
     }
 
     let result;

@@ -390,11 +390,6 @@
   background-color: var(--badge-bg-hover-color);
 }
 
-.appSideBar__taskItem:hover.appSideBar__taskItem--selected
-  .appSideBar__taskItem_badge-wrapper {
-  /* background-color: var(--badge-bg-hover-color); */
-}
-
 /* calendar animation */
 #calendar {
   stroke-width: 1.6;
