@@ -332,19 +332,19 @@ export function activeTabsEvent() {
           item.dataset.projectId,
         );
 
-        if (numberOfProjects === 0) {
-          let isViewModeOn = false;
-          appSideBar__taskItems.forEach((ele) => {
-            if (ele.classList.contains("appSideBar__taskItem--selected")) {
-              isViewModeOn = true;
-            }
-          });
+        if (numberOfProjects !== 0) return;
 
-          if (!isViewModeOn) {
-            appSideBar__taskItems[2].classList.add(
-              "appSideBar__taskItem--selected",
-            );
+        let isViewModeOn = false;
+        appSideBar__taskItems.forEach((ele) => {
+          if (ele.classList.contains("appSideBar__taskItem--selected")) {
+            isViewModeOn = true;
           }
+        });
+
+        if (!isViewModeOn) {
+          appSideBar__taskItems[2].classList.add(
+            "appSideBar__taskItem--selected",
+          );
         }
       };
     }
