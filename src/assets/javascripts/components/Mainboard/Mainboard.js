@@ -811,35 +811,44 @@ function deactivateAddTaskEvent() {
       "appTask-modal_mylist--active",
     );
 
-    if (isAddTaskActive) {
-      if (!e.target.closest(".myDayAddTask")) {
-        if (isMylistActive) {
-          if (e.target.closest(".mylist-modal")) {
-            if (e.target.closest(".mylist__item-btn")) {
-              const myList_modalBtns =
-                appTask_modal_mylist.querySelectorAll(".mylist__item-btn");
-              // change selected mylist item (ui)
-              const selectedBtn = e.target.closest(".mylist__item-btn");
+    if (!isAddTaskActive) return;
 
-              const selectedIndex = +selectedBtn.dataset.index;
-              let oldBtnIndex;
-              let oldBtnIcon;
-              for (let i = 0; i < myList_modalBtns.length; ++i) {
-                if (
-                  myList_modalBtns[i].querySelector(".mylist__item-icon svg")
-                ) {
-                  oldBtnIndex = +myList_modalBtns[i].dataset.index;
-                  oldBtnIcon =
-                    myList_modalBtns[i].querySelector(".mylist__item-icon");
-                  break;
-                }
-              }
+    if (e.target.closest(".myDayAddTask")) return;
 
-              if (oldBtnIndex !== selectedIndex) {
-                oldBtnIcon.innerHTML = "";
-                const selectedBtn_icon =
-                  selectedBtn.querySelector(".mylist__item-icon");
-                selectedBtn_icon.innerHTML = `
+    if (isMylistActive) {
+      if (!e.target.closest(".mylist-modal")) {
+        appTask_modal_mylist.classList.remove("appTask-modal_mylist--active");
+
+        setTimeout(() => {
+          textarea.focus();
+        }, 200);
+
+        return;
+      }
+
+      if (!e.target.closest(".mylist__item-btn")) return;
+
+      const myList_modalBtns =
+        appTask_modal_mylist.querySelectorAll(".mylist__item-btn");
+      // change selected mylist item (ui)
+      const selectedBtn = e.target.closest(".mylist__item-btn");
+
+      const selectedIndex = +selectedBtn.dataset.index;
+      let oldBtnIndex;
+      let oldBtnIcon;
+      for (let i = 0; i < myList_modalBtns.length; ++i) {
+        if (myList_modalBtns[i].querySelector(".mylist__item-icon svg")) {
+          oldBtnIndex = +myList_modalBtns[i].dataset.index;
+          oldBtnIcon = myList_modalBtns[i].querySelector(".mylist__item-icon");
+          break;
+        }
+      }
+
+      if (oldBtnIndex !== selectedIndex) {
+        oldBtnIcon.innerHTML = "";
+        const selectedBtn_icon =
+          selectedBtn.querySelector(".mylist__item-icon");
+        selectedBtn_icon.innerHTML = `
                                     <svg width="24" height="24" viewBox="0 0 24 24">
         
                                         <g fill="none" fill-rule="evenodd">
@@ -849,70 +858,54 @@ function deactivateAddTaskEvent() {
                                     </svg>
                                 `;
 
-                handler.trigger(
-                  "update current indexes",
-                  selectedIndex,
-                  undefined,
-                );
-              }
-
-              // deactivate mylist-modal
-              appTask_modal_mylist.classList.remove(
-                "appTask-modal_mylist--active",
-              );
-
-              setTimeout(() => {
-                textarea.focus();
-              }, 200);
-
-              // hightlight mylist icon
-              myListBtn.classList.add("mylistButton--selected");
-            }
-          } else {
-            appTask_modal_mylist.classList.remove(
-              "appTask-modal_mylist--active",
-            );
-
-            setTimeout(() => {
-              textarea.focus();
-            }, 200);
-          }
-        } else {
-          // trim input data before exit addtask
-          if (!textarea.value.trim()) {
-            textarea.value = "";
-            textarea.style.height = textareaHeight;
-            rootElement.style.setProperty(
-              "--add-card-dynamic-height",
-              `${textareaHeight}`,
-            );
-            myDayAddTask.classList.remove("myDayAddTask--active");
-          } else {
-            textarea.value = textarea.value.trim();
-            textarea.style.height = textareaHeight;
-            const scHeight = textarea.scrollHeight;
-            textarea.style.height = `${scHeight}px`;
-            rootElement.style.setProperty(
-              "--add-card-dynamic-height",
-              `${scHeight}px`,
-            );
-          }
-
-          // change to defaut properties
-          textarea.classList.add("dynamicTextArea--inactive");
-          enterBtn.classList.add("iconButton--inactive");
-          enterBtn.disabled = true;
-
-          if (myListBtn.classList.contains("mylistButton--selected")) {
-            myListBtn.classList.remove("mylistButton--selected");
-          }
-
-          setTimeout(() => {
-            textarea.blur();
-          }, 200);
-        }
+        handler.trigger("update current indexes", selectedIndex, undefined);
       }
+
+      // deactivate mylist-modal
+      appTask_modal_mylist.classList.remove("appTask-modal_mylist--active");
+
+      setTimeout(() => {
+        textarea.focus();
+      }, 200);
+
+      // hightlight mylist icon
+      myListBtn.classList.add("mylistButton--selected");
+
+      return;
     }
+
+    // trim input data before exit addtask
+    if (!textarea.value.trim()) {
+      textarea.value = "";
+      textarea.style.height = textareaHeight;
+      rootElement.style.setProperty(
+        "--add-card-dynamic-height",
+        `${textareaHeight}`,
+      );
+      myDayAddTask.classList.remove("myDayAddTask--active");
+    } else {
+      textarea.value = textarea.value.trim();
+      textarea.style.height = textareaHeight;
+      const scHeight = textarea.scrollHeight;
+      textarea.style.height = `${scHeight}px`;
+      rootElement.style.setProperty(
+        "--add-card-dynamic-height",
+        `${scHeight}px`,
+      );
+    }
+
+    // change to defaut properties
+    textarea.classList.add("dynamicTextArea--inactive");
+    enterBtn.classList.add("iconButton--inactive");
+    enterBtn.disabled = true;
+
+    if (myListBtn.classList.contains("mylistButton--selected")) {
+      myListBtn.classList.remove("mylistButton--selected");
+    }
+
+    setTimeout(() => {
+      textarea.blur();
+    }, 200);
   });
 }
 
