@@ -82,7 +82,7 @@ const taskDetail_priority_button = taskDetail_modal.querySelector(
 );
 const taskDetail_check = taskDetail_modal.querySelector(".checkedTask");
 const taskDetail_check_button = taskDetail_check.querySelector(".iconButton");
-const textArea = taskDetail_modal.querySelector(
+const textAreaTaskContent = taskDetail_modal.querySelector(
   ".taskDetail__taskContent .textArea",
 );
 const textAreaNotes = taskDetail_modal.querySelector(
@@ -94,7 +94,7 @@ const myDayRoute_addTask = appWrapper.querySelector(".myDayRoute_addTask");
 const myDayAddTask = myDayRoute_addTask.querySelector(".myDayAddTask");
 const textAeraWrapper = myDayAddTask.querySelector(".textAeraWrapper");
 const textareaHeight = rootElement.style.getPropertyValue("--add-card-height");
-const textarea = document.getElementById("dynamicTextArea");
+const textarea = textAeraWrapper.querySelector("#dynamicTextArea");
 const myDayAddTask_enter = myDayAddTask.querySelector(".myDayAddTask_enter");
 const enterBtn = myDayAddTask_enter.querySelector(".iconButton");
 const iconWrapper = textAeraWrapper.querySelector(".iconWrapper");
@@ -760,7 +760,10 @@ export function entriesEvents() {
   clickDetailEntryEvent();
 
   clickEntryEvent();
-  changeTaskTitleTextareaHeightEvent(textArea, "--detailtask-textarea-height");
+  changeTaskTitleTextareaHeightEvent(
+    textAreaTaskContent,
+    "--detailtask-textarea-height",
+  );
   clickDetailBtnEvents();
   changeTaskTitleTextareaHeightEvent(
     textAreaNotes,
@@ -781,10 +784,8 @@ export function addTaskEvents() {
 
 function activateAddTaskEvent() {
   handler.trigger("update my list addtask modal");
-  // const myList_modalBtns = appTask_modal_mylist.querySelectorAll('.mylist__item-btn');
 
   myDayAddTask.onclick = function () {
-    // e.stopPropagation();
     myDayAddTask.classList.add("myDayAddTask--active");
 
     if (enterBtn.classList.contains("iconButton--inactive")) {
@@ -801,8 +802,6 @@ function activateAddTaskEvent() {
 
 function deactivateAddTaskEvent() {
   appWrapper.addEventListener("click", (e) => {
-    // e.stopPropagation();
-
     const isAddTaskActive = myDayAddTask.classList.contains(
       "myDayAddTask--active",
     );
