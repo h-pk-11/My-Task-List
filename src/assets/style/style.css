@@ -1803,7 +1803,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
   height: var(--app-dropdown-item-height);
 }
 
