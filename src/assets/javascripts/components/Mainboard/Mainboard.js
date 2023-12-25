@@ -708,12 +708,34 @@ export function entriesEvents() {
     }
   }
 
+  // initial check bottom shadow
+  function initialCheckBottomShadow() {
+    const { clientHeight: listHeight } = myDayRouteEntries__list;
+    const { clientHeight: contentHeight } = myDayRouteEntries__content;
+    const isBottomShadowActive =
+      myDayRoute__bottomshadow__shadow.classList.contains(
+        "myDayRoute__bottomshadow__shadow--active",
+      );
+
+    if (listHeight >= contentHeight) {
+      if (!isBottomShadowActive) {
+        myDayRoute__bottomshadow__shadow.classList.add(
+          "myDayRoute__bottomshadow__shadow--active",
+        );
+      }
+    } else if (isBottomShadowActive) {
+      myDayRoute__bottomshadow__shadow.classList.remove(
+        "myDayRoute__bottomshadow__shadow--active",
+      );
+    }
+  }
+
+  // scroll entries event for toggle top and bottom shadow
   function scrollEntriesEvent() {
     myDayRouteEntries__content.addEventListener("scroll", () => {
       hideDropdownModal();
-      const { scrollTop } = myDayRouteEntries__content;
-      const { clientHeight } = myDayRouteEntries__content;
-      const { scrollHeight } = myDayRouteEntries__content;
+      const { scrollTop, clientHeight, scrollHeight } =
+        myDayRouteEntries__content;
 
       const isTopShadowActive =
         myDayRoute__topshadow__shadow.classList.contains(
@@ -752,6 +774,7 @@ export function entriesEvents() {
     });
   }
 
+  initialCheckBottomShadow();
   scrollEntriesEvent();
 
   clickCheckboxEntryEvent();
@@ -783,8 +806,7 @@ export function addTaskEvents() {
 }
 
 function activateAddTaskEvent() {
-  handler.trigger("update my list addtask modal");
-
+  // handler.trigger("update my list addtask modal");
   myDayAddTask.onclick = function () {
     myDayAddTask.classList.add("myDayAddTask--active");
 
@@ -893,7 +915,7 @@ function deactivateAddTaskEvent() {
       );
     }
 
-    // change to defaut properties
+    // change to default properties
     textarea.classList.add("dynamicTextArea--inactive");
     enterBtn.classList.add("iconButton--inactive");
     enterBtn.disabled = true;
