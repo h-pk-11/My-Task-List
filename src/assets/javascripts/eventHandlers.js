@@ -54,11 +54,11 @@ export default {
     });
 
     this._eventHandlers[eventName].renders.forEach((render) => {
-      render(...args);
+      render();
     });
 
     this._eventHandlers[eventName].events.forEach((event) => {
-      event(...args);
+      event();
     });
 
     return result;
