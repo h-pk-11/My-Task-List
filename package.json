@@ -38,7 +38,7 @@
     "start": "webpack serve --open-app-name chrome --config webpack.dev.js",
     "devbuild": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "push": "git subtree push --prefix build origin gh-pages",
+    "push-ghpages": "git subtree push --prefix build origin gh-pages",
     "lint": "eslint ./src/assets/javascripts/*"
   },
   "author": "",
