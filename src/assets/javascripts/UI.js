@@ -26,6 +26,7 @@ function render() {
 function activeEvents() {
   activeTabsEvent();
   entriesEvents();
+  console.log("fired from active Events");
 }
 
 function intialEvents() {
@@ -36,14 +37,10 @@ function intialEvents() {
 }
 
 export default (function () {
-  const inital = () => {
+  const start = () => {
     render();
     intialEvents();
     activeEvents();
-  };
-
-  const start = () => {
-    inital();
   };
 
   return {
