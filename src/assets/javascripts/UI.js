@@ -26,7 +26,6 @@ function render() {
 function activeEvents() {
   activeTabsEvent();
   entriesEvents();
-  console.log("fired from active Events");
 }
 
 function intialEvents() {
