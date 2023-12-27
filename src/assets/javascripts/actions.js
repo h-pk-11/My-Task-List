@@ -2,17 +2,9 @@ import { myData } from "./data";
 import LocalStorage from "./LocalStorage/LocalStorage";
 import formatDate from "./date";
 import handler from "./eventHandlers";
-
-// from backdropmodallist
 import updateBackdropListModal from "./components/Mainboard/BackdropModalList/BackdropModalList";
-
-// from backdropmodalpriority
 import updateBackdropPriorityModal from "./components/Mainboard/BackdropModalPriority/BackdropModalPriority";
-
-// from mylistaddtaskmodal
 import updateMylistAddTaskModal from "./components/Mainboard/MylistAddTaskModal/MylistAddTaskModal";
-
-// from backdropmodaldetail
 import {
   informDetailModal,
   getDetailModalInfo,
