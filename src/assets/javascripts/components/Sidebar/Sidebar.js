@@ -8,7 +8,7 @@ const appWrapper = todosApp.querySelector(".appWrapper");
 const appSideBar = appWrapper.querySelector(".appSideBar");
 const appSideBarTransition = appSideBar.querySelector(".appSideBar-transition");
 
-// for mode view
+// mode view
 const appSideBar__taskList = appSideBar.querySelector(".appSideBar__taskList");
 const count_elements = appSideBar__taskList.querySelectorAll(
   ".appSideBar__taskItem_badge-count",
@@ -20,7 +20,7 @@ const project_count_element = appSideBar__projectHeading.querySelector(
   ".appSideBar__item_badge-count",
 );
 
-// for render project list view
+// render project list view
 const appSideBar__animation = appSideBar.querySelector(
   ".appSideBar__animation",
 );
@@ -135,7 +135,6 @@ export const renderProjectsList = () => {
   }
 };
 
-// sidebarEvents
 let isProjectNameEditMode = false;
 export function addSidebarEvents() {
   scrollNavbarEvent();
@@ -351,15 +350,11 @@ export function activeTabsEvent() {
   });
 }
 
-// newprojectEvents
 export function addNewProject() {
   showNewProjectModal();
 
-  // add event listeners
   newprojectCloseBtn.onclick = hideNewProjectModal;
-
   newProjectModal.onclick = hideNewProjectModal;
-
   newProjectModalWrapper.onclick = function (e) {
     e.stopPropagation();
   };
@@ -374,7 +369,6 @@ export function addNewProject() {
     } else {
       handler.trigger("change project name", projectName, id);
     }
-    // handler.trigger("create a project", projectName);
     hideNewProjectModal();
     input.value = "";
 
@@ -393,11 +387,8 @@ export function addNewProject() {
 export function editProjectName(e) {
   const id = showProjectModal(e);
 
-  // add event listeners
   newprojectCloseBtn.onclick = hideNewProjectModal;
-
   newProjectModal.onclick = hideNewProjectModal;
-
   newProjectModalWrapper.onclick = function (event) {
     event.stopPropagation();
   };
@@ -412,7 +403,6 @@ export function editProjectName(e) {
     } else {
       handler.trigger("change project name", projectName, id);
     }
-    // handler.trigger("change project name", projectName, id);
     hideNewProjectModal();
     input.value = "";
   };
