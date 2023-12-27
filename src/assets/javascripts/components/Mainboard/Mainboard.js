@@ -699,13 +699,18 @@ export function entriesEvents() {
   // top and bottom shadow checks
   function initialCheckBottomShadow() {
     const { clientHeight: listHeight } = myDayRouteEntries__list;
-    const { clientHeight: contentHeight } = myDayRouteEntries__content;
+    const {
+      scrollTop,
+      clientHeight: contentHeight,
+      scrollHeight,
+    } = myDayRouteEntries__content;
     const isBottomShadowActive =
       myDayRoute__bottomshadow__shadow.classList.contains(
         "myDayRoute__bottomshadow__shadow--active",
       );
-
+    console.log(listHeight, contentHeight);
     if (listHeight >= contentHeight) {
+      if (Math.ceil(scrollTop + contentHeight) === scrollHeight) return;
       if (!isBottomShadowActive) {
         myDayRoute__bottomshadow__shadow.classList.add(
           "myDayRoute__bottomshadow__shadow--active",
