@@ -5,7 +5,7 @@ import handler from "../../eventHandlers";
 const rootElement = document.documentElement;
 const todosApp = document.querySelector("#todosApp");
 
-// for header
+// header
 const appWrapper = todosApp.querySelector(".appWrapper");
 const myDayRoute__title = appWrapper.querySelector(".myDayRoute__title");
 const weekday = myDayRoute__title.querySelector(
@@ -22,7 +22,7 @@ const myDayRouteTitle_subtitle = myDayRoute__title.querySelector(
   ".myDayRouteTitle_subtitle",
 );
 
-// for entries
+// entries
 const myDayRoute__entries = appWrapper.querySelector(".myDayRoute__entries");
 const myDayRoute__topshadow__shadow = myDayRoute__entries.querySelector(
   ".myDayRoute__topshadow__shadow",
@@ -89,7 +89,7 @@ const textAreaNotes = taskDetail_modal.querySelector(
   ".taskDetail__editNotes .textAreaNotes",
 );
 
-// for addtask
+// addtask
 const myDayRoute_addTask = appWrapper.querySelector(".myDayRoute_addTask");
 const myDayAddTask = myDayRoute_addTask.querySelector(".myDayAddTask");
 const textAeraWrapper = myDayAddTask.querySelector(".textAeraWrapper");
@@ -105,8 +105,6 @@ export const AddTask__message = myDayAddTask.querySelector(
 const appTask_modal_mylist = appWrapper.querySelector(".appTask-modal_mylist");
 
 // for render Entries view
-// const appMainBoard = appWrapper.querySelector('.appMainBoard');
-
 export function findProjectIndex(projectId) {
   let i = 0;
   for (; i < myData.projects.length; i++) {
@@ -127,7 +125,7 @@ function getParentElement(element, selector) {
   }
 }
 
-// render
+// render entries
 export function findTaskIndex(projectId, taskId) {
   const projectIndex = findProjectIndex(projectId);
   let j = 0;
@@ -315,7 +313,6 @@ export function entriesEvents() {
     ".myDayRouteEntries__item",
   );
 
-  // click on an entry event - detail backbrop modal
   function getDetailCard() {
     if (
       !appTask_modal__taskDetail.classList.contains(
@@ -332,7 +329,6 @@ export function entriesEvents() {
     myDayRouteEntries__items.forEach((entryItem) => {
       entryItem.onclick = function (e) {
         if (!e.target.closest("button")) {
-          // get detail action...
           const taskItem = getParentElement(
             e.target,
             ".myDayRouteEntries__item",
@@ -396,7 +392,6 @@ export function entriesEvents() {
     }
   }
 
-  // click on checkbox of an entry
   function clickCheckboxEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const checkboxEle = entryItem.querySelector(
@@ -416,7 +411,6 @@ export function entriesEvents() {
     }
   }
 
-  // click on pin of an entry
   function clickPinEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const pinEle = entryItem.querySelector(".modifyButton_pin");
@@ -439,7 +433,6 @@ export function entriesEvents() {
     }
   }
 
-  // click on remove button of an entry
   function clickRemoveEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const removeEle = entryItem.querySelector(".modifyButton_remove");
@@ -457,18 +450,13 @@ export function entriesEvents() {
     }
   }
 
-  // click on detail button of an entry
   function clickDetailEntryEvent() {
     myDayRouteEntries__items.forEach((entryItem) => {
       const modifyEle = entryItem.querySelector(".modifyButton_modify");
       modifyEle.onclick = openDropdownModalEvent;
     });
 
-    // click detail button events
-    // click mylist button
     listDetailBtn.onclick = openBackdropModalListEvent;
-
-    // click priority button
     priorityDetailBtn.onclick = openBackdropModalPriorityEvent;
   }
 
@@ -512,7 +500,7 @@ export function entriesEvents() {
     }
   }
 
-  // mylist dropdown event definition
+  // mylist dropdown events
   function openBackdropModalListEvent() {
     if (
       !backdropModal_list.classList.contains(
@@ -611,7 +599,7 @@ export function entriesEvents() {
     }
   }
 
-  // priority dropdown event definition
+  // priority dropdown events
   function hideBackdropModalPriority(e) {
     if (!e.target.closest(".backdrop-modal")) {
       if (
@@ -708,7 +696,7 @@ export function entriesEvents() {
     }
   }
 
-  // initial check bottom shadow
+  // top and bottom shadow checks
   function initialCheckBottomShadow() {
     const { clientHeight: listHeight } = myDayRouteEntries__list;
     const { clientHeight: contentHeight } = myDayRouteEntries__content;
@@ -730,13 +718,12 @@ export function entriesEvents() {
     }
   }
 
-  // scroll entries event for toggle top and bottom shadow
   function scrollEntriesEvent() {
     myDayRouteEntries__content.addEventListener("scroll", () => {
       hideDropdownModal();
       const { scrollTop, clientHeight, scrollHeight } =
         myDayRouteEntries__content;
-
+      console.log(scrollTop, clientHeight, scrollHeight);
       const isTopShadowActive =
         myDayRoute__topshadow__shadow.classList.contains(
           "myDayRoute__topshadow__shadow--active",
@@ -746,7 +733,6 @@ export function entriesEvents() {
           "myDayRoute__bottomshadow__shadow--active",
         );
 
-      // check top shadow
       if (scrollTop === 0) {
         if (isTopShadowActive) {
           myDayRoute__topshadow__shadow.classList.remove(
@@ -759,8 +745,7 @@ export function entriesEvents() {
         );
       }
 
-      // check bottom shadow
-      if (scrollTop + clientHeight === scrollHeight) {
+      if (Math.ceil(scrollTop + clientHeight) === scrollHeight) {
         if (isBottomShadowActive) {
           myDayRoute__bottomshadow__shadow.classList.remove(
             "myDayRoute__bottomshadow__shadow--active",
@@ -806,7 +791,6 @@ export function addTaskEvents() {
 }
 
 function activateAddTaskEvent() {
-  // handler.trigger("update my list addtask modal");
   myDayAddTask.onclick = function () {
     myDayAddTask.classList.add("myDayAddTask--active");
 
@@ -851,7 +835,6 @@ function deactivateAddTaskEvent() {
 
       const myList_modalBtns =
         appTask_modal_mylist.querySelectorAll(".mylist__item-btn");
-      // change selected mylist item (ui)
       const selectedBtn = e.target.closest(".mylist__item-btn");
 
       const selectedIndex = +selectedBtn.dataset.index;
@@ -882,14 +865,12 @@ function deactivateAddTaskEvent() {
         handler.trigger("update current indexes", selectedIndex, undefined);
       }
 
-      // deactivate mylist-modal
       appTask_modal_mylist.classList.remove("appTask-modal_mylist--active");
 
       setTimeout(() => {
         textarea.focus();
       }, 200);
 
-      // hightlight mylist icon
       myListBtn.classList.add("mylistButton--selected");
 
       return;
@@ -965,7 +946,6 @@ function activateSendBtnEvent() {
 
 function sendDataEvent() {
   enterBtn.onclick = function () {
-    // valid?
     const isValid = enterBtn.classList.contains("iconButton--valid");
     if (isValid) {
       enterBtn.classList.remove("iconButton--valid");
@@ -976,8 +956,8 @@ function sendDataEvent() {
       const myList_modalBtns =
         appTask_modal_mylist.querySelectorAll(".mylist__item-btn");
 
-      // collect data action
-      // 1. check having at least 1 project
+      // collect data action includes
+      // 1 - check having at least 1 project
       if (myList_modalBtns.length === 0) {
         if (
           !AddTask__message.classList.contains("myDayAddTask__message--active")
@@ -989,7 +969,7 @@ function sendDataEvent() {
         handler.trigger("create a new task", taskName);
       }
 
-      // ...then clear textarea element
+      // 2 - then clear textarea element
       textarea.value = "";
 
       if (myListBtn.classList.contains("mylistButton--selected")) {
