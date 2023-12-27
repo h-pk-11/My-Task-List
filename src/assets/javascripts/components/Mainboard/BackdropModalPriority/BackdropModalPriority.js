@@ -7,7 +7,6 @@ const backdropModal_priority = appWrapper.querySelector(
 const backdropModal_tab_priority_list = backdropModal_priority.querySelector(
   ".backdropModal_tab-list",
 );
-
 const priorityArr = ["High", "Medium", "Low"];
 
 export default function updateBackdropPriorityModal() {

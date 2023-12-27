@@ -1,9 +1,7 @@
 import { myData, html } from "../../../data";
 
 const appWrapper = document.querySelector(".appWrapper");
-
 const appTask_modal_mylist = appWrapper.querySelector(".appTask-modal_mylist");
-
 const mylist__list_items = appTask_modal_mylist.querySelector(
   ".mylist__list_items",
 );
