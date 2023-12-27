@@ -723,7 +723,7 @@ export function entriesEvents() {
       hideDropdownModal();
       const { scrollTop, clientHeight, scrollHeight } =
         myDayRouteEntries__content;
-      console.log(scrollTop, clientHeight, scrollHeight);
+
       const isTopShadowActive =
         myDayRoute__topshadow__shadow.classList.contains(
           "myDayRoute__topshadow__shadow--active",
