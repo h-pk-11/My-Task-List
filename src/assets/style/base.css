@@ -61,6 +61,7 @@
   --box-shadow-top-dull-color: rgba(0, 0, 0, 0.05);
   --box-shadow-focus-ring: 0 0 0 6px hsla(0, 0%, 54%, 0.25);
 
+  --bg-1-color: #fbfdfb;
   --card-bg-1-color: #fff;
   --card-bg-2-color: #fff;
   --card-border-color: #ededed;
@@ -71,7 +72,7 @@
   --confirm-color-2: #23ce88;
 
   --input-date-color: #f8c8dc;
-  --item-hover-bg-color: #f7f7f7;
+  --item-hover-bg-color: #eee7d7;
 
   --mainboard-bg-color: transparent;
   --myDayRoute-bg-color: #fff;
@@ -96,11 +97,11 @@
 
   --scrollbar-thumb-bg-color: var(--text-color-3);
   --scrollbar-thumb-bg-color-2: var(--brand-color);
-  --scrollbar-pane-bg-color: var(--sidebar-bg-color);
+  --scrollbar-pane-bg-color: inherit;
   --separator-color: #d8d8d8;
   --section-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
     0 2px 18px rgba(0, 0, 0, 0.08);
-  --sidebar-bg-color: #fff;
+  --sidebar-bg-color: #f6f6f6;
 
   --textfield-bg-focus-color: #f6f6f6;
   --task-project-icon-color: #f5a623;
