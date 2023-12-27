@@ -3,6 +3,7 @@
   width: 100%;
   z-index: 0;
   background-color: var(--bg-1-color);
+  color: var(--text-color-1);
   position: relative;
   overflow: hidden;
 }
@@ -1319,6 +1320,7 @@
   justify-content: flex-start;
   height: var(--mylist-modal-item-height);
   background-color: var(--card-bg-curent-color);
+  color: var(--text-color-1);
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: -0.3px;
@@ -1331,6 +1333,7 @@
   padding: 0 16px;
   font-size: 1.8rem;
   font-weight: 700;
+  color: var(--brand-color);
 }
 
 .mylist__item-header-content {
@@ -1369,6 +1372,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: inherit;
 }
 
 .mylist__item-icon {
@@ -1852,6 +1856,7 @@
   font-size: 1.6rem;
   line-height: 1.6rem;
   font-weight: 600;
+  color: inherit;
 }
 
 .backdropModal_tab {
