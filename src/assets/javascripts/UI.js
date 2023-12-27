@@ -1,15 +1,11 @@
 import handler from "./eventHandlers";
 import actions from "./actions";
-
-// sidebar
 import {
   addSidebarEvents,
   activeTabsEvent,
   renderModeCount,
   renderProjectsList,
 } from "./components/Sidebar/Sidebar";
-
-// mainboard
 import {
   setCurentTime,
   renderEntries,
