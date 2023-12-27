@@ -2,23 +2,9 @@
   height: 100vh;
   width: 100%;
   z-index: 0;
+  background-color: var(--bg-1-color);
   position: relative;
   overflow: hidden;
-}
-
-.appWrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  /* background-image: url('../images/background/light_background-2.webp'); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 1;
 }
 
 /* app sidebar */
@@ -38,11 +24,6 @@
     opacity linear 200ms 200ms;
 }
 
-/* .appSideBar:hover {
-    opacity: 1;
-    transform: translateX(0px);
-} */
-
 .appSideBar-transition {
   display: flex;
   flex-direction: column;
@@ -55,34 +36,6 @@
   align-items: center;
   padding: 0 1px;
 }
-
-/* .appSideBar_setting {
-    display: inline-flex;
-    position: absolute;
-    top: var(--app-sidebar-padding-top);
-    left: var(--app-sidebar-padding-left);
-    height: var(--app-sidebar-avatar-size);
-    width: var(--app-sidebar-avatar-size);
-    background-color: var(--sidebar-bg-color);
-    border-radius: 50%;
-    box-shadow: 0 0 0 1.5px var(--text-color-1);
-    z-index: 1;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-} */
-
-/* .appSideBar_setting-icon {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-/* .appSideBar_setting-icon svg path {
-   stroke-width: 0.5px;
-} */
 
 .appSideBar-profile-content {
   width: 100%;
@@ -146,29 +99,6 @@
   color: var(--action-color);
   background-color: var(--card-item-bg-highlighted-color);
 }
-
-/* .appSideBar-profile-content button {
-    width: 100%;
-    padding: 0 42px 0 0;
-    text-align: left;
-    border: none;
-    background-color: transparent;
-    font-size: inherit;
-    font-weight: 600;
-    display: inline-block;
-    color: var(--text-color-1);
-    margin: 1px 0 2px 0;
-}
-
-.appSideBar-profile-content button.appSideBar-profile-tagline {
-    margin: 0;
-    color: var(--text-color-2);
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin: 2px 0 1px 0;
-    letter-spacing: -0.3px;
-    text-overflow: ellipsis;
-} */
 
 .appSideBar__list {
   list-style-type: none;
@@ -333,8 +263,8 @@
     transform: scale(1);
   }
 }
-
 /* *** */
+
 .appSideBar__taskItem_title {
   display: grid;
   place-content: left centenr;
@@ -345,6 +275,8 @@
   font-size: 1.5rem;
   line-height: 2.4rem;
   letter-spacing: -0.3px;
+  color: var(--text-color-1);
+  transition: color 100ms linear;
 }
 
 .appSideBar__taskItem--selected .appSideBar__taskItem_title-wrapper {
@@ -579,6 +511,7 @@
 .appSideBar__taskItem--selected .appSideBar__taskItem_icon #textline_1 {
   stroke: var(--action-color) !important;
 }
+/* *** */
 
 .appSideBar__item-heading-wrapper {
   width: 100%;
@@ -951,7 +884,6 @@
 .newproject-modal__button:disabled {
   opacity: 0.3;
 }
-/* *** */
 
 /* app mainboard */
 .appMainBoard {
