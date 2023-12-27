@@ -708,7 +708,7 @@ export function entriesEvents() {
       myDayRoute__bottomshadow__shadow.classList.contains(
         "myDayRoute__bottomshadow__shadow--active",
       );
-    console.log(listHeight, contentHeight);
+
     if (listHeight >= contentHeight) {
       if (Math.ceil(scrollTop + contentHeight) === scrollHeight) return;
       if (!isBottomShadowActive) {
